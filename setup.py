@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="discord-webhook",
-    version="0.0.1",
+    version="0.0.2",
     author="JtheDroid",
     author_email="fabi.jobo@gmail.com",
     description="A package with classes for Discord webhooks",
@@ -14,4 +14,5 @@ setuptools.setup(
     url="https://github.com/JtheDroid/discord-webhook",
     packages=setuptools.find_packages(),
     python_requires='>=3',
+    install_requires=['requests']
 )
