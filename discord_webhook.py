@@ -50,12 +50,14 @@ class DiscordWebhook(Webhook):
         }
         return self.post(data)
 
-    def webhook_post_embed(self, title: str, description: str, url: str, footer: str = None) -> requests.Response:
+    def webhook_post_embed(self, title: str, description: str,
+                           url: str = None, footer: str = None, content: str = None) -> requests.Response:
         embed = {
             "title": title,
-            "description": description,
-            "url": url
+            "description": description
         }
+        if url:
+            embed["url"] = url
         if footer:
             embed["footer"] = {"text": footer}
         data = {
@@ -63,4 +65,6 @@ class DiscordWebhook(Webhook):
             "username": self.name,
             "embeds": [embed]
         }
+        if content:
+            data["content"] = content
         return self.post(data)
